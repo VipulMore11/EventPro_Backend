@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes
-from .serializers import UserProfileSerializer, GetUserProfileSerializer
+from .serializers import UserProfileSerializer, GetUserProfileSerializer, GetCommitteeSerializer
 from .models import UserProfile, Committee
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
@@ -59,5 +59,19 @@ def get_userprofile(request):
             return Response(serializer.data, status=status.HTTP_200_OK)
         except UserProfile.DoesNotExist:
             return Response({'message': 'User Info not found'}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        
+@api_view(['GET'])
+@permission_classes([AllowAny])
+@csrf_exempt
+def get_committee(request):
+    if request.method == 'GET':
+        try:
+            commi = Committee.objects.all()
+            serializer = GetCommitteeSerializer(commi, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Committee.DoesNotExist:
+            return Response({'message': 'Committee not found'}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)

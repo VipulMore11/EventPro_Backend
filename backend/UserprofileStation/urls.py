@@ -8,5 +8,6 @@ from . import views
 urlpatterns = [
     path('', TemplateView.as_view(template_name="index.html")),
     path('get_userprofile/', views.get_userprofile, name='get_userprofile'),
+    path('get_committee/', views.get_committee, name='get_committee'),
     path('post_userprofile/', views.post_userprofile, name='post_userprofile'),
 ]

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import UserProfile
+from .models import UserProfile, Committee
 
 class Base64ImageField(serializers.ImageField):
     """
@@ -62,4 +62,9 @@ class GetUserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         depth = 1
         model = UserProfile
+        fields = '__all__'
+
+class GetCommitteeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Committee
         fields = '__all__'
