@@ -1,0 +1,268 @@
+openapi: 3.0.3
+info:
+  title: Event Management Project APIs
+  version: 1.0.0
+  description: All APIs Here!!!
+paths:
+  /admin/new_role/:
+    post:
+      operationId: admin_new_role_create
+      tags:
+      - admin
+      responses:
+        '200':
+          description: No response body
+  /authentication/api/auth/google-login/:
+    post:
+      operationId: authentication_api_auth_google_login_create
+      tags:
+      - authentication
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /authentication/api/auth/google-signup/:
+    post:
+      operationId: authentication_api_auth_google_signup_create
+      tags:
+      - authentication
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /authentication/forgotpassword/:
+    post:
+      operationId: authentication_forgotpassword_create
+      tags:
+      - authentication
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /authentication/login/:
+    post:
+      operationId: authentication_login_create
+      tags:
+      - authentication
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /authentication/login_seller/:
+    post:
+      operationId: authentication_login_seller_create
+      tags:
+      - authentication
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /authentication/logout/:
+    post:
+      operationId: authentication_logout_create
+      tags:
+      - authentication
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /authentication/signup/:
+    post:
+      operationId: authentication_signup_create
+      tags:
+      - authentication
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /authentication/signup_seller/:
+    post:
+      operationId: authentication_signup_seller_create
+      tags:
+      - authentication
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /event/approve_by_dean/:
+    post:
+      operationId: event_approve_by_dean_create
+      tags:
+      - event
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /event/approve_by_hod/:
+    post:
+      operationId: event_approve_by_hod_create
+      tags:
+      - event
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /event/approve_by_mentor/:
+    post:
+      operationId: event_approve_by_mentor_create
+      tags:
+      - event
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /event/disapprove/:
+    post:
+      operationId: event_disapprove_create
+      tags:
+      - event
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /event/event_add/:
+    post:
+      operationId: event_event_add_create
+      tags:
+      - event
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /event/event_details/:
+    post:
+      operationId: event_event_details_create
+      tags:
+      - event
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /event/event_info/:
+    get:
+      operationId: event_event_info_retrieve
+      tags:
+      - event
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /event/homepage/:
+    get:
+      operationId: event_homepage_retrieve
+      tags:
+      - event
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /event/my_events/:
+    get:
+      operationId: event_my_events_retrieve
+      tags:
+      - event
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /event/register_event/:
+    post:
+      operationId: event_register_event_create
+      tags:
+      - event
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /event/unapproved_event/:
+    get:
+      operationId: event_unapproved_event_retrieve
+      tags:
+      - event
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /user/get_userprofile/:
+    get:
+      operationId: user_get_userprofile_retrieve
+      tags:
+      - user
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /user/post_userprofile/:
+    post:
+      operationId: user_post_userprofile_create
+      tags:
+      - user
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /venue/get_venue/:
+    get:
+      operationId: venue_get_venue_retrieve
+      tags:
+      - venue
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /venue/post_venue/:
+    post:
+      operationId: venue_post_venue_create
+      tags:
+      - venue
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
+    jwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

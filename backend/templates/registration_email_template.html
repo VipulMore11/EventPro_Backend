@@ -1,0 +1,62 @@
+<!-- templates/registration_email_template.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .header {
+            text-align: center;
+            padding: 10px;
+            background-color: #0044cc;
+            color: #ffffff;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            padding: 20px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Registration Confirmation</h1>
+        </div>
+        <div class="content">
+            <p>Dear {{ first_name }},</p>
+            <p>Thank you for registering for the event <strong>{{ event_name }}</strong>.</p>
+            <p>Here are the event details:</p>
+            <ul>
+                <li><strong>Event Name:</strong> {{ event_name }}</li>
+                <li><strong>Event Date:</strong> {{ start_date }} to {{ end_date }}</li>
+                <li><strong>Venue:</strong> {{ venue_name }}</li>
+            </ul>
+            <p>We look forward to your participation.</p>
+            <p>Best Regards,<br>Event Management Team</p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 Event Management. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
