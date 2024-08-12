@@ -155,6 +155,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOWED_ORIGINS = [
+    "https://eventproo.netlify.app",
+]
+
 CORS_ALLOW_METHODS = [
     'DELETE',
     'GET',
