@@ -11,6 +11,9 @@ class Committee(models.Model):
 
     class Meta:
         db_table = 'UserProfileStation_committee'
+    
+    def __str__(self):
+        return f"{self.name}"
 
 class Role(models.Model):
     role = models.CharField(max_length=100, default='', blank=True, null=True)

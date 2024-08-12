@@ -9,3 +9,6 @@ class Venue(models.Model):
 
     class Meta:
         db_table = 'VenueStation_venue'
+    
+    def __str__(self):
+        return f"{self.name}"
